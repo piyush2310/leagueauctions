@@ -1,0 +1,1 @@
+protoc --proto_path=/home/piyush/go/src/github.com/leagueauctions/server/auctioncmd/proto/ --js_out=import_style=commonjs,binary:. command.proto

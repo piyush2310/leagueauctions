@@ -35,7 +35,7 @@ const AuctionsNavigator = createBottomTabNavigator(
                     );
                 }
             }
-        }
+        },
     },
     {
         tabBarOptions: {

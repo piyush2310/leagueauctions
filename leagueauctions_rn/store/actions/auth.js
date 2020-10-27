@@ -30,7 +30,7 @@ export const signup = (email, password) => {
 export const login = (email, password) => {
     return async dispatch => {
         const response = await fetch(
-            'http:192.168.1.22:8080/user/login',
+            'http:192.168.1.22:8282/user/login',
             {
                 method: 'POST',
                 headers: {
@@ -47,15 +47,15 @@ export const login = (email, password) => {
         if (response.status === 200) {
             const resData = await response.json();
             console.log(resData);
-            dispatch({ type: LOGIN , token: resData.login_token , userId: email});
+            dispatch({ type: LOGIN, token: resData.login_token, userId: email, uuid: resData.user_uuid });
         } else {
             const errorResData = await response.json();
             const errorId = errorResData.error.message;
             let message = 'Something went wrong!';
             if (errorId === 'EMAIL_NOT_FOUND') {
-              message = 'This email could not be found!';
+                message = 'This email could not be found!';
             } else if (errorId === 'INVALID_PASSWORD') {
-              message = 'This password is not valid!';
+                message = 'This password is not valid!';
             }
             throw new Error(message);
         }

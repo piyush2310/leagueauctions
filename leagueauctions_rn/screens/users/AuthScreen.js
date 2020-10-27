@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     TextInput,
     StyleSheet,
@@ -12,7 +12,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import * as authActions from '../../store/actions/auth';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 const { width: WIDTH } = Dimensions.get('window')
 import Icon from 'react-native-vector-icons/Ionicons';
 //import Icon from '@expo/vector-icons';
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         margin: 10,
     },
-    text:{
+    text: {
         fontSize: 16,
         textAlign: 'center'
     },

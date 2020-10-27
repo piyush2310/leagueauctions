@@ -6,12 +6,13 @@ import {
     SafeAreaView,
     TouchableOpacity,
     Dimensions,
-    Image
+    Image,
+    Settings
 } from 'react-native';
 import { Ionicons, MaterialIcons } from "react-native-vector-icons";
 const { width: WIDTH } = Dimensions.get('window')
 
-const HomeScreen = () => {
+const SettingsScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity>
@@ -115,4 +116,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomeScreen
+export default SettingsScreen

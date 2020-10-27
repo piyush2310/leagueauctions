@@ -4,9 +4,11 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import authReducer from './store/reducers/auth';
+import socketReducer from './store/reducers/websockets';
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  websockets: socketReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));

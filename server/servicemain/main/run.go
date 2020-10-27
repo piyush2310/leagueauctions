@@ -9,7 +9,6 @@ import (
 	_ "github.com/lib/pq"
 )
 
-
 func main() {
 
 	routerCfg := bakeRouterCfg()
@@ -26,16 +25,16 @@ func main() {
 	}
 }
 
-
-func bakeRouterCfg() router.Config{
+func bakeRouterCfg() router.Config {
 
 	enableHTTPS := ""
 	certsdir := ""
-	hostname := "127.0.0.1"
+	//hostname := "127.0.0.1"
+	hostname := "192.168.1.22"
 
-	if enableHTTPS = os.Getenv("HTTPSSECURE"); enableHTTPS != ""{
+	if enableHTTPS = os.Getenv("HTTPSSECURE"); enableHTTPS != "" {
 		//run on https
-		if certsdir = os.Getenv("CERT_DIR"); certsdir == ""{
+		if certsdir = os.Getenv("CERT_DIR"); certsdir == "" {
 			log.Fatal("CERT_DIR environment variable not set")
 		}
 		certfilepath := certsdir + "/cert1.cer"
@@ -51,11 +50,11 @@ func bakeRouterCfg() router.Config{
 		}
 	}
 
-	// plain http mode 
+	// plain http mode
 	return router.Config{
-		HostAddress:  hostname,
-		PortNo:       8080,
-		Secure:       false,
+		HostAddress: hostname,
+		PortNo:      8282,
+		Secure:      false,
 	}
-	
+
 }
